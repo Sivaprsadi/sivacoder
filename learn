@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn | Sivacoder Snippets</title>
+    <style>
+        body { font-family: sans-serif; padding: 2rem; line-height: 1.6; max-width: 800px; margin: auto; background: #f8fafc; }
+        .back { text-decoration: none; color: #2563eb; font-weight: bold; }
+        h1 { color: #1e293b; }
+        .topic-card { background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+    <a href="/" class="back">← Back to Home</a>
+    <h1>Learning Snippets</h1>
+    <p>Simplified code and technical notes for students.</p>
+
+    <div class="topic-card">
+        <h3>1. C++ Game Loop Basics</h3>
+        <p>A simple structure for GPU-based rendering.</p>
+        <a href="#">Coming Soon...</a>
+    </div>
+
+    <div class="topic-card">
+        <h3>2. OpenCart Database Locking</h3>
+        <p>How to use GET_LOCK for secure transactions.</p>
+        <a href="#">Coming Soon...</a>
+    </div>
+</body>
+</html>
