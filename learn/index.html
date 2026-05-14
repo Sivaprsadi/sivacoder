@@ -4,28 +4,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learn | Sivacoder Snippets</title>
+    <!-- SEO and Favicon -->
+    <meta name="description" content="Technical snippets and simplified code for developers, students, and colleagues.">
+    <link rel="icon" type="image/png" href="sivacoder_logo.png">
+
     <style>
-        body { font-family: sans-serif; padding: 2rem; line-height: 1.6; max-width: 800px; margin: auto; background: #f8fafc; }
-        .back { text-decoration: none; color: #2563eb; font-weight: bold; }
-        h1 { color: #1e293b; }
-        .topic-card { background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 1rem; }
+        :root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            background: var(--light); 
+            color: var(--dark); 
+            line-height: 1.6; 
+        }
+
+        /* Standardized Header from Home */
+        header { 
+            background: var(--dark); 
+            color: white; 
+            padding: 2rem; 
+            text-align: center; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
+
+        .small-logo {
+            width: 60px;
+            height: auto;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .small-logo:hover { transform: scale(1.1); }
+
+        /* Navigation Styles */
+        nav { 
+            background: white; 
+            padding: 1rem; 
+            text-align: center; 
+            border-bottom: 1px solid #ddd; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+        }
+
+        .back-link { 
+            text-decoration: none; 
+            color: var(--primary); 
+            font-weight: bold; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        /* Container and Content */
+        .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+        
+        h1 { color: var(--dark); font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .subtitle { color: #64748b; margin-bottom: 2rem; }
+
+        /* Enhanced Topic Cards */
+        .topic-card { 
+            background: white; 
+            padding: 1.5rem; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+            margin-bottom: 1.5rem; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--primary);
+        }
+
+        .topic-card:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1); 
+        }
+
+        .topic-card h3 { 
+            margin-top: 0; 
+            color: var(--dark); 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+        }
+
+        .badge {
+            background: #e2e8f0;
+            color: #475569;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* Footer from Home */
+        footer { 
+            text-align: center; 
+            padding: 2rem; 
+            color: #64748b; 
+            font-size: 0.9rem; 
+            background: var(--dark);
+            margin-top: 4rem;
+        }
     </style>
 </head>
 <body>
-    <a href="/" class="back">← Back to Home</a>
+
+<header>
+    <img src="sivacoder_logo.png" alt="Sivacoder Logo" class="small-logo">
+    <p style="margin:0; font-weight: bold;">Sivacoder Studio</p>
+</header>
+
+<nav>
+    <a href="/" class="back-link"><span>🏠</span> Back to Home</a>
+</nav>
+
+<div class="container">
     <h1>Learning Snippets</h1>
-    <p>Simplified code and technical notes for students.</p>
+    <p class="subtitle">Simplified code for C++ games and e-commerce architecture.</p>
 
+    <!-- Topic 1 -->
     <div class="topic-card">
-        <h3>1. C++ Game Loop Basics</h3>
-        <p>A simple structure for GPU-based rendering.</p>
-        <a href="#">Coming Soon...</a>
+        <h3><span>🎮</span> 1. C++ Game Loop Basics</h3>
+        <p>A simple structure for GPU-based rendering and high-performance logic updates.</p>
+        <span class="badge">Coming Soon</span>
     </div>
 
+    <!-- Topic 2 -->
     <div class="topic-card">
-        <h3>2. OpenCart Database Locking</h3>
-        <p>How to use GET_LOCK for secure transactions.</p>
-        <a href="#">Coming Soon...</a>
+        <h3><span>🔐</span> 2. OpenCart Database Locking</h3>
+        <p>How to use MySQL <code>GET_LOCK()</code> to handle secure transactions and prevent race conditions.</p>
+        <span class="badge">Coming Soon</span>
     </div>
+
+    <!-- Topic 3 -->
+    <div class="topic-card">
+        <h3><span>⚡</span> 3. Web Performance Snippets</h3>
+        <p>Optimizing PHP and JavaScript for high-speed e-commerce systems.</p>
+        <span class="badge">In Progress</span>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 Sivacoder. Built for the developer community.</p>
+</footer>
+
 </body>
 </html>
