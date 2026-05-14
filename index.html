@@ -3,73 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sivacoder | Code, Learn, Share</title>
+    <title>Sivacoder | Code, Learn, Share (S)</title>
+    
     <!-- Search Engine Optimization (SEO) -->
     <meta name="description" content="Sivacoder - Professional web and game development tutorials. Empowering Telugu developers with high-quality tech content, 4K studio tutorials, and simplified code snippets.">
     <meta name="keywords" content="Sivacoder, Web Development, Game Development, Telugu Developer, Tech Tutorials, E-commerce Solutions">
     <meta name="author" content="Sivacoder">
     
-    <!-- Open Graph / Facebook (For better social media sharing) -->
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.sivacoder.com/">
-    <meta property="og:title" content="Sivacoder | Code, Learn, Share">
+    <meta property="og:title" content="Sivacoder | Code, Learn, Share (S)">
     <meta property="og:description" content="Explore advanced web architecture, game development, and coding snippets simplified for students and professionals.">
     <meta property="og:image" content="https://www.sivacoder.com/og-image.jpg">
+
+    <!-- Note: Recommended creating a small, dedicated favicon.png derived from your neutral logo for the tab icon (image_5.png/image_6.png) -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
     <style>
         :root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: var(--light); color: var(--dark); line-height: 1.6; }
-        header { background: var(--dark); color: white; padding: 2rem; text-align: center; }
-        nav { background: white; padding: 1rem; text-align: center; border-bottom: 1px solid #ddd; position: sticky; top: 0; }
-        nav a { margin: 0 15px; text-decoration: none; color: var(--dark); font-weight: bold; }
+        
+        /* Layout */
         .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
-        .hero { text-align: center; padding: 3rem 0; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .btn { display: inline-block; background: var(--primary); color: white; padding: 0.8rem 1.5rem; border-radius: 5px; text-decoration: none; margin-top: 1rem; }
-        footer { text-align: center; padding: 2rem; color: #64748b; font-size: 0.9rem; }
-        header { background: var(--dark); color: white; padding: 2rem; text-align: center; display: flex; flex-direction: column; align-items: center; ustify-content: center; }
-        header img { border-radius: 50%; /* Optional: keeps it circular like YouTube */border: 2px solid white;}
+
+        /* Header (image_4.png style) */
+        header { 
+            background: var(--dark); 
+            color: white; 
+            padding: 3rem; 
+            text-align: center; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center;
+        }
+
+        /* 
+           Preserve expression and add subtle hover animations 
+           (image_6.png style)
+        */
+        #sivacoder-main-logo {
+            width: 150px;
+            height: auto;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); /* For floating effect */
+        }
+
+        /* Float animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+
+        #sivacoder-main-logo.floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Subtle expressions: only scales, doesn't distort or wink */
+        #sivacoder-main-logo:hover {
+            transform: scale(1.03) translateY(-3px);
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.6);
+        }
+
+        /* Typography */
+        h1 { margin: 0 0 0.5rem 0; font-size: 2.5rem; letter-spacing: -1px; }
+        h1.pulse { animation: pulseText 3s ease-in-out infinite; }
+        
+        @keyframes pulseText {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
+        header p { margin: 0; color: #cbd5e1; font-weight: 300; }
+
+        /* Navigation (image_7.png style) */
+        nav { background: white; padding: 1rem; text-align: center; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        nav a { margin: 0 15px; text-decoration: none; color: var(--dark); font-weight: bold; transition: color 0.3s ease; white-space: nowrap; }
+        nav a:hover { color: var(--primary); }
+        
+        /* Icon styles for nav */
+        .nav-icon { margin-right: 5px; vertical-align: middle; }
+
+        /* Hero */
+        .hero { text-align: center; padding: 4rem 0; background-color: var(--light); color: var(--dark); }
+        .hero h2 { color: var(--dark); font-size: 2rem; margin-top: 0; }
+        .hero p { max-width: 600px; margin: 1rem auto; color: #475569; }
+
+        /* Cards (image_7.png style + tilt effect) */
+        .card { 
+            background: white; 
+            padding: 2rem; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover { 
+            transform: translateY(-5px) rotateX(2deg) rotateY(-2deg); /* Tilt effect */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            background-color: #fafbfd;
+        }
+
+        /* Icon styles for cards */
+        .card-icon { color: var(--primary); font-size: 1.8rem; margin-bottom: 1rem; }
+        .card h3 { margin-top: 0.5rem; display: flex; align-items: center; gap: 10px;}
+
+        /* Button and subtle hover effect */
+        .btn { 
+            display: inline-block; 
+            background: var(--primary); 
+            color: white; 
+            padding: 0.8rem 1.5rem; 
+            border-radius: 5px; 
+            text-decoration: none; 
+            margin-top: 1.5rem; 
+            font-weight: bold; 
+            transition: background 0.3s ease, transform 0.3s ease; 
+            text-align: center;
+        }
+        .btn:hover { 
+            background: #1d4ed8; 
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer { 
+            text-align: center; 
+            padding: 3rem 0; 
+            color: #64748b; 
+            font-size: 0.9rem; 
+            background: var(--dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        #sivacoder-footer-logo {
+            width: 60px;
+            height: auto;
+            border-radius: 50%;
+            filter: grayscale(100%);
+            opacity: 0.5;
+            margin-bottom: 1rem;
+            border: 2px solid #64748b;
+        }
     </style>
-    <link rel="icon" type="image/png" href="sivacoder_logo.png">
 </head>
 <body>
 
 <header>
-    <img src="sivacoder_logo.png" alt="Sivacoder Logo" style="height: 80px; width: auto; margin-bottom: 1rem;">
-    <h1>Sivacoder</h1>
+    <!-- Use main neutral logo expression (image_6.png style) -->
+    <img id="sivacoder-main-logo" class="floating" src="sivacoder_logo.png" alt="Sivacoder Logo - Neutral Gaze">
+    <h1 class="pulse">Sivacoder</h1>
     <p>Empowering Telugu Developers & the World</p>
 </header>
 
 <nav>
-    <a href="/">Home</a>
-    <a href="/learn">Learn</a>
-    <a href="https://youtube.com/@sivacoder" target="_blank">YouTube</a>
-    <a href="mailto:contact@sivacoder.com">Contact</a>
+    <a href="/"><span class="nav-icon">🏠</span>Home</a>
+    <a href="/learn"><span class="nav-icon">📚</span>Learn</a>
+    <a href="https://youtube.com/@sivacoder" target="_blank"><span class="nav-icon">▶️</span>YouTube</a>
+    <a href="mailto:contact@sivacoder.com"><span class="nav-icon">✉️</span>Contact</a>
 </nav>
 
-<div class="container">
-    <div class="hero">
-        <h2>Welcome to my Digital Studio</h2>
-        <p>I build games, e-commerce solutions, and high-quality tech content.</p>
-    </div>
+<div class="container hero">
+    <h2>Welcome to my Digital Studio</h2>
+    <p>I build games, e-commerce solutions, and high-quality tech content for a global audience.</p>
+</div>
 
-    <div class="grid">
-        <div class="card">
-            <h3>Learn Snippets</h3>
-            <p>Direct code topics and snippets for students and colleagues. Simplified for easy understanding.</p>
-            <a href="/learn" class="btn">Start Learning</a>
+<div class="container grid">
+    <div class="card">
+        <div>
+            <!-- Added learning icon (image_7.png style) -->
+            <h3><span class="card-icon">📜</span>Learning Snippets</h3>
+            <p>Direct code topics and snippets for students and colleagues. Simplified for easy understanding and immediate application.</p>
         </div>
-        <div class="card">
-            <h3>YouTube Content</h3>
-            <p>Watch my latest 4K studio tutorials on game development and web architecture.</p>
-            <a href="#" class="btn">Watch Now</a>
+        <a href="/learn" class="btn">Start Learning</a>
+    </div>
+    <div class="card">
+        <div>
+            <!-- Added YouTube icon (image_7.png style) -->
+            <h3><span class="card-icon">📹</span>YouTube Content</h3>
+            <p>Watch my latest 4K studio tutorials, deep dives into game development architecture, and modern web tech.</p>
         </div>
+        <a href="#" class="btn">Watch Now</a>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2026 Sivacoder. Built with safety and speed.</p>
+    <!-- Greyscale neutral logo expression (image_7.png style) -->
+    <img id="sivacoder-footer-logo" src="sivacoder_logo.png" alt="Sivacoder Logo - Subtle Gaze">
+    <p>&copy; 2026 Sivacoder. Built with safety, speed, and subtle code gaze.</p>
 </footer>
+
+<script>
+    /* Add subtle eyes animation: they track mouse slightly while maintaining expression */
+    const logo = document.getElementById('sivacoder-main-logo');
+    logo.addEventListener('mousemove', (e) => {
+        const logoRect = logo.getBoundingClientRect();
+        const logoCenterX = logoRect.left + logoRect.width / 2;
+        const logoCenterY = logoRect.top + logoRect.height / 2;
+        
+        const deltaX = e.clientX - logoCenterX;
+        const deltaY = e.clientY - logoCenterY;
+        
+        // Convert to percentage shift, max 5%
+        const maxShiftX = 5; 
+        const maxShiftY = 5;
+        const shiftX = Math.min(Math.max(deltaX / (logoRect.width / 2) * maxShiftX, -maxShiftX), maxShiftX);
+        const shiftY = Math.min(Math.max(deltaY / (logoRect.height / 2) * maxShiftY, -maxShiftY), maxShiftY);
+        
+        // Use perspective to create subtle gaze shift in googly eyes (maintain neutral expression)
+        logo.style.transform = `perspective(500px) rotateX(${-shiftY}deg) rotateY(${shiftX}deg) scale(1.03)`;
+    });
+    
+    // Reset gaze on mouseout
+    logo.addEventListener('mouseout', () => {
+        logo.style.transform = 'perspective(500px) rotateX(0deg) rotateY(0deg) scale(1)';
+    });
+</script>
 
 </body>
 </html>
