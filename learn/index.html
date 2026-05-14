@@ -3,164 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn | Sivacoder Snippets</title>
-    <!-- SEO and Favicon -->
-    <meta name="description" content="Technical snippets and simplified code for developers, students, and colleagues.">
+    <title>Learn | Sivacoder Engineering Insights</title>
+    <meta name="description" content="Deep dives into Go-native architecture, system design, and the philosophy of engineering.">
     <link rel="icon" type="image/png" href="/sivacoder_logo.png">
 
     <style>
-        :root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; }
+        :root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; --accent: #f59e0b; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: var(--light); color: var(--dark); line-height: 1.6; }
         
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
-            background: var(--light); 
-            color: var(--dark); 
-            line-height: 1.6; 
-        }
+        header { background: var(--dark); color: white; padding: 2rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .small-logo { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--primary); margin-bottom: 1rem; object-fit: cover; }
 
-        /* Standardized Header from Home */
-        header { 
-            background: var(--dark); 
+        nav { background: white; padding: 1rem; text-align: center; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 1000; }
+        .back-link { text-decoration: none; color: var(--primary); font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 5px; }
+
+        .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+        
+        /* Featured Article Card */
+        .featured-card { 
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%); 
             color: white; 
-            padding: 2rem; 
-            text-align: center; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
+            padding: 2.5rem; 
+            border-radius: 15px; 
+            margin-bottom: 3rem; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
         }
+        .featured-card::after { content: 'FEATURED'; position: absolute; top: 20px; right: -30px; background: var(--accent); color: var(--dark); padding: 5px 40px; transform: rotate(45deg); font-weight: bold; font-size: 0.7rem; }
+        .featured-card h2 { font-size: 2.5rem; margin-top: 0; }
+        .featured-card p { font-size: 1.1rem; opacity: 0.9; }
 
-        .small-logo {
-            width: 60px;
-            height: auto;
-            border-radius: 50%;
-            border: 2px solid var(--primary);
-            margin-bottom: 1rem;
-            transition: transform 0.3s ease;
-        }
-        .small-logo {
-            width: 60px;
-            height: 60px; /* Force equal height for a perfect circle */
-            object-fit: cover; /* Prevents stretching */
-            border-radius: 50%;
-            border: 2px solid var(--primary);
-            margin-bottom: 1rem;
-            background-color: var(--light); /* Prevents the 'broken' look while loading */
-        }
-
-        /* Navigation Styles */
-        nav { 
-            background: white; 
-            padding: 1rem; 
-            text-align: center; 
-            border-bottom: 1px solid #ddd; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000;
-        }
-
-        .back-link { 
-            text-decoration: none; 
-            color: var(--primary); 
-            font-weight: bold; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-        }
-
-        /* Container and Content */
-        .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+        /* Grid for other topics */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        .topic-card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; border-top: 5px solid var(--primary); }
+        .topic-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); }
+        .topic-card h3 { margin-top: 0; font-size: 1.4rem; display: flex; align-items: center; gap: 10px; }
         
-        h1 { color: var(--dark); font-size: 2.2rem; margin-bottom: 0.5rem; }
-        .subtitle { color: #64748b; margin-bottom: 2rem; }
+        .badge { background: #dcfce7; color: #166534; font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: bold; }
+        .btn-read { display: inline-block; margin-top: 1.5rem; color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 2px solid transparent; transition: 0.3s; }
+        .btn-read:hover { border-bottom: 2px solid var(--primary); }
 
-        /* Enhanced Topic Cards */
-        .topic-card { 
-            background: white; 
-            padding: 1.5rem; 
-            border-radius: 10px; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
-            margin-bottom: 1.5rem; 
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 4px solid var(--primary);
-        }
-
-        .topic-card:hover { 
-            transform: translateY(-3px); 
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1); 
-        }
-
-        .topic-card h3 { 
-            margin-top: 0; 
-            color: var(--dark); 
-            display: flex; 
-            align-items: center; 
-            gap: 10px; 
-        }
-
-        .badge {
-            background: #e2e8f0;
-            color: #475569;
-            font-size: 0.75rem;
-            padding: 2px 8px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-
-        /* Footer from Home */
-        footer { 
-            text-align: center; 
-            padding: 2rem; 
-            color: #64748b; 
-            font-size: 0.9rem; 
-            background: var(--dark);
-            margin-top: 4rem;
-        }
+        footer { text-align: center; padding: 3rem 0; color: #94a3b8; background: var(--dark); margin-top: 5rem; }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="/sivacoder_logo.png" alt="Sivacoder Logo" class="small-logo" onerror="this.src='https://via.placeholder.com/60?text=S'">
-    <p style="margin:0; font-weight: bold; font-family: 'Segoe UI', sans-serif;">Sivacoder Studio</p>
+    <img src="/sivacoder_logo.png" alt="Sivacoder Logo" class="small-logo">
+    <p style="margin:0; font-weight: bold; letter-spacing: 1px;">SIVACODER ENGINEERING</p>
 </header>
 
 <nav>
-    <a href="/" class="back-link"><span>🏠</span> Back to Home</a>
+    <a href="/" class="back-link">🏠 Back to Studio Home</a>
 </nav>
 
 <div class="container">
-    <h1>Learning Snippets</h1>
-    <p class="subtitle">Engineering insights from 4.5+ years of production development[cite: 68].</p>
-
-    <div class="topic-card">
-        <h3><span>🎮</span> 1. C++ & System Design</h3>
-        <p>Exploring first-principles problem solving and high-performance system design patterns[cite: 75, 117].</p>
-        <span class="badge">Coming Soon</span>
+    <div class="featured-card">
+        <h2>CRUD is God: The Circle of Life</h2>
+        <p>Everything in the digital world follows a cycle: Born (Create), Living (Read), Evolution (Update), and Death (Delete). Whether you are a frontend dev or a backend architect, understanding this philosophy is the foundation of all engineering.</p>
+        <a href="/learn/crud-is-life.html" class="btn-read" style="color: var(--accent);">Deep Dive into the Philosophy →</a>
     </div>
 
-    <div class="topic-card">
-        <h3><span>🔐</span> 2. OpenCart & MySQL Locking</h3>
-        <p>Implementation of <code>GET_LOCK()</code> for secure transactions, a technique used in my production e-commerce modules[cite: 82, 83].</p>
-        <span class="badge">In Progress</span>
-    </div>
+    <div class="grid">
+        <div class="topic-card">
+            <h3><span>🐹</span> Go-Native MVC Framework</h3>
+            <p>Planning a modern, high-performance web framework for Go. Borrowing the best from Laravel and .NET Core while keeping the simplicity of Goroutines.</p>
+            <span class="badge">PLANNING STAGE</span>
+            <br><a href="#" class="btn-read">View Architecture Roadmap →</a>
+        </div>
 
-    <div class="topic-card">
-        <h3><span>🏗️</span> 3. Modular Architecture</h3>
-        <p>Full lifecycle accountability: from business requirement analysis to building clean, maintainable technical solutions[cite: 82, 85].</p>
-        <span class="badge">New</span>
-    </div>
-    
-    <div style="text-align: center; margin-top: 3rem;">
-        <p>Interested in my full technical background?</p>
-        <a href="../SivaPrasad_Imandi_CV.pdf" class="back-link" download>📥 Download Full Professional CV</a>
+        <div class="topic-card">
+            <h3><span>🏗️</span> Scalable Backend Models</h3>
+            <p>Beyond simple coding: How to think in distributed systems, advisory locking for high-traffic e-commerce, and modular design patterns.</p>
+            <span class="badge">IN PROGRESS</span>
+            <br><a href="#" class="btn-read">Read Design Notes →</a>
+        </div>
+
+        <div class="topic-card">
+            <h3><span>🤖</span> Agentic AI Development</h3>
+            <p>Using Claude Code and multi-agent orchestration to build systems faster without sacrificing code quality or security.</p>
+            <span class="badge">LATEST INSIGHTS</span>
+            <br><a href="#" class="btn-read">Optimize Your Workflow →</a>
+        </div>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2026 Sivacoder. Built for the developer community.</p>
+    <p>&copy; 2026 Sivacoder. Building the future of independent engineering.</p>
 </footer>
 
 </body>
