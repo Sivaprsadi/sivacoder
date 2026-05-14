@@ -6,7 +6,7 @@
     <title>Learn | Sivacoder Snippets</title>
     <!-- SEO and Favicon -->
     <meta name="description" content="Technical snippets and simplified code for developers, students, and colleagues.">
-    <link rel="icon" type="image/png" href="sivacoder_logo.png">
+    <link rel="icon" type="image/png" href="/sivacoder_logo.png">
 
     <style>
         :root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; }
@@ -38,8 +38,15 @@
             margin-bottom: 1rem;
             transition: transform 0.3s ease;
         }
-
-        .small-logo:hover { transform: scale(1.1); }
+        .small-logo {
+            width: 60px;
+            height: 60px; /* Force equal height for a perfect circle */
+            object-fit: cover; /* Prevents stretching */
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            margin-bottom: 1rem;
+            background-color: var(--light); /* Prevents the 'broken' look while loading */
+        }
 
         /* Navigation Styles */
         nav { 
@@ -116,8 +123,8 @@
 <body>
 
 <header>
-    <img src="sivacoder_logo.png" alt="Sivacoder Logo" class="small-logo">
-    <p style="margin:0; font-weight: bold;">Sivacoder Studio</p>
+    <img src="/sivacoder_logo.png" alt="Sivacoder Logo" class="small-logo" onerror="this.src='https://via.placeholder.com/60?text=S'">
+    <p style="margin:0; font-weight: bold; font-family: 'Segoe UI', sans-serif;">Sivacoder Studio</p>
 </header>
 
 <nav>
